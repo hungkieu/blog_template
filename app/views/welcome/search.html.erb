@@ -1,0 +1,13 @@
+<h2>Search</h2>
+
+<% @posts.each do |post| %>
+  <strong> <%= post.title %> </strong>
+
+  <div class="row">
+    <div class="col"><%= post.content %></div>
+  </div>
+
+  <div class="row">
+    <div class="col"><%= link_to "Read more >>", post %></div>
+  </div>
+<% end %>

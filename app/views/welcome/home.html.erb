@@ -1,0 +1,30 @@
+<h2>Recent Posts</h2>
+
+<table>
+  <tr>
+    <td>Search:</td>
+    <td><input type="text" id="search" /></td>
+  </tr>
+</table>
+
+<% @posts.each do |post| %>
+  <strong> <%= post.title %> </strong>
+
+  <div class="row">
+    <div class="col"><%= post.content %></div>
+  </div>
+
+  <div class="row">
+    <div class="col"><%= link_to "Read more >>", post %></div>
+  </div>
+<% end %>
+
+<script>
+  document
+    .getElementById("search")
+    .addEventListener('keyup', function(e) {
+      if (e.keyCode == 13) {
+        window.location.href = "<%= welcome_search_path %>?search=" + e.target.value
+      }
+    })
+</script>
