@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'admin/index'
   get 'welcome/search'
   post "posts/:id/comments", to: "posts#comments", as: :comments
+  get 'delete', to: "admin#delete", as: :delete
 
   resources :posts
   resources :categories

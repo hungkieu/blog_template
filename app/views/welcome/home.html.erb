@@ -1,11 +1,13 @@
 <h2>Recent Posts</h2>
 
-<table>
-  <tr>
-    <td>Search:</td>
-    <td><input type="text" id="search" /></td>
-  </tr>
-</table>
+<%= form_tag welcome_search_path, method: :get do %>
+  <table>
+    <tr>
+      <td>Search:</td>
+      <td><input type="text" id="search" name="search" /></td>
+    </tr>
+  </table>
+<% end %>
 
 <% @posts.each do |post| %>
   <strong> <%= post.title %> </strong>
@@ -18,13 +20,3 @@
     <div class="col"><%= link_to "Read more >>", post %></div>
   </div>
 <% end %>
-
-<script>
-  document
-    .getElementById("search")
-    .addEventListener('keyup', function(e) {
-      if (e.keyCode == 13) {
-        window.location.href = "<%= welcome_search_path %>?search=" + e.target.value
-      }
-    })
-</script>
